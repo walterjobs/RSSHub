@@ -10,6 +10,12 @@ pageClass: routes
 
 <Route author="nczitzk" example="/anki/changes" path="/anki/changes"/>
 
+## AnyTXT
+
+### Release Notes
+
+<Route author="nczitzk" example="/anytxt/release-notes" path="/anytxt/release-notes"/>
+
 ## Apkpure
 
 ### Versions
@@ -36,6 +42,44 @@ pageClass: routes
 
 <RouteEn author="HenryQW" example="/aptonic/action" path="/aptonic/action/:untested?" :paramsDesc="['Set any value to include untested actions.']"/>
 
+## Bandisoft
+
+### History
+
+<RouteEn author="nczitzk" example="/bandisoft/bandizip" path="/bandisoft/:id?/:lang?" :paramsDesc="['Software id, see below, Bandizip by default', 'Language, see below, English by default']">
+
+Software id
+
+| Bandizip (Win) | Bandizip (Mac) | Honeycam | Honeyview |
+| -------------- | -------------- | -------- | --------- |
+| bandizip       | bandizip.mac   | honeycam | honeyview |
+
+Language
+
+| English | en |
+| 中文 (简体) | cn |
+| 中文 (繁體) | tw |
+| 日本語 | jp |
+| Русский | ru |
+| Español | es |
+| Français | fr |
+| Deutsch | de |
+| Italiano | it |
+| Slovenčina | sk |
+| Українська | uk |
+| Беларуская | be |
+| Dansk | da |
+| Polski | pl |
+| Português Brasileiro | br |
+| Čeština | cs |
+| Nederlands | nl |
+| Slovenščina| sl |
+| Türkçe| tr  |
+| ภาษาไทย | th |
+| 한국어 | kr |
+
+</RouteEn>
+
 ## Chocolatey
 
 ### Software Update
@@ -57,6 +101,12 @@ pageClass: routes
 For example: `https://www.curseforge.com/sc2/assets/taylor-mouses-stuff/files` to `/curseforge/sc2/assets/taylor-mouses-stuff/files`
 
 </RouteEn>
+
+## Ditto clipboard manager
+
+### Changes
+
+<RouteEn author="nczitzk" example="/ditto/changes" path="/ditto/changes/:type?" :paramsDesc="['Type, `beta` is an option']"/>
 
 ## Docker Hub
 
@@ -120,6 +170,12 @@ The owner of the official image fills in the library, for example: https://rsshu
 
 <RouteEn author="hoilc" example="/edge/addon/gangkeiaobmjcjokiofpkfpcobpbmnln" path="/edge/addon/:crxid" :paramsDesc="['Addon id, can be found in addon url']"/>
 
+## Microsoft Store
+
+### Updates
+
+<Route author="hellodword" example="/microsoft-store/updates/9WZDNCRFHVN5/CN" path="/microsoft-store/updates/:productid/:market?" :paramsDesc="['`Share` - `Copy Link` in the Store', '`CN` as default']" />
+
 ## Minecraft
 
 Refer to [#minecraft](/en/game.html#minecraft)
@@ -176,6 +232,12 @@ Refer to [#minecraft](/en/game.html#minecraft)
 | qts | quts_hero | qutscloud | quwan_orchestrator | qes | tas | afobot |
 
 </RouteEn>
+
+## QTTabBar
+
+### Change Log
+
+<RouteEn author="nczitzk" example="/qttabbar/change-log" path="/qttabbar/change-log"/>
 
 ## RescueTime
 

@@ -108,6 +108,12 @@ pageClass: routes
 | ---- | ------------ | ---- | ----- |
 | jobs | translations | qa   | links |
 
+## LowEndTalk
+
+### Discussion
+
+<Route author="nczitzk" example="/lowendtalk/discussion/168480" path="/lowendtalk/discussion/:id?" :paramsDesc="['讨论 id']"/>
+
 ## MCBBS
 
 ### 版块
@@ -168,9 +174,21 @@ pageClass: routes
 
 ### 帖子
 
-<Route author="zengxs" example="/saraba1st/thread/1789863" path="/saraba1st/thread/:tid" :paramsDesc="['帖子 id']">
+<Route author="zengxs" example="/saraba1st/thread/1789863" path="/saraba1st/thread/:tid" :paramsDesc="['帖子 id']" radar="1">
 
 帖子网址如果为 <https://bbs.saraba1st.com/2b/thread-1789863-1-1.html> 那么帖子 id 就是 `1789863`。
+
+</Route>
+
+## SCBOY 论坛
+
+### 帖子
+
+<Route author="totorowechat" example="/scboy/thread/188673" path="/scboy/thread/:tid" :paramsDesc="['帖子 tid']" radar="1">
+
+帖子网址如果为 <https://www.scboy.com/?thread-188673.htm> 那么帖子 tid 就是 `1789863`。
+
+访问水区需要添加环境变量 `SCBOY_BBS_TOKEN`, 详情见部署页面的配置模块。 `SCBOY_BBS_TOKEN`在 cookies 的`bbs_token`中。
 
 </Route>
 
@@ -242,7 +260,11 @@ pageClass: routes
 
 ### 虎扑 BBS 论坛
 
-<Route author="LogicJake" example="/hupu/bbs/bxj/2" path="/hupu/bbs/:id/:order?" :paramsDesc="['板块 id，可在板块 URL 找到', '排序方式，1最新回帖（默认），2最新发帖，3精华帖']"/>
+<Route author="LogicJake" example="/hupu/bbs/bxj/2" path="/hupu/bbs/:id/:order?" :paramsDesc="['板块 id，可在板块 URL 找到', '排序方式，1最新回帖（默认），2最新发帖，3精华帖']">
+
+此路由与旧的 `/hupu/bxj/:id/:order?` 等价，但推荐使用 `/hupu/bbs/:id/:order?`，旧路由可能会在未来被删除。
+
+</Route>
 
 ### 分类
 
@@ -320,6 +342,7 @@ pageClass: routes
 | CrackMe      | crackme    |
 | Pwn          | pwn        |
 | WEB 安全     | web        |
+| 外文翻译     | translate  |
 | 全站         | all        |
 
 | 类型     | type   |
@@ -389,6 +412,24 @@ pageClass: routes
 
 </Route>
 
+## 品葱
+
+### 发现
+
+<Route author="zphw" example="/pincong/category/1/new" path="/pincong/category/:category?/:sort?" :paramsDesc="['分类，与官网分类 URL `category-` 后的数字对应，默认为全部', '排序方式，参数可见下表，默认为推荐']" anticrawler="1" />
+
+| 最新 | 推荐      | 热门 |
+| ---- | --------- | ---- |
+| new  | recommend | hot  |
+
+### 精选
+
+<Route author="zphw" example="/pincong/hot" path="/pincong/hot/:category?" :paramsDesc="['分类，与官网分类 URL `category-` 后的数字对应，默认为全部']" anticrawler="1" />
+
+### 话题
+
+<Route author="zphw" example="/pincong/topic/美国" path="/pincong/topic/:topic?" :paramsDesc="['话题，可在官网获取']" anticrawler="1" />
+
 ## 三星盖乐世社区
 
 ### 最新帖子
@@ -457,7 +498,7 @@ pageClass: routes
 
 ### 用户帖子
 
-<Route author="humpylin" example="/tieba/user/斗鱼游戏君" path="/tieba/user/:uid" :paramsDesc="['用户 ID']" />
+<Route author="humpylin nczitzk" example="/tieba/user/斗鱼游戏君" path="/tieba/user/:uid" :paramsDesc="['用户 ID']" />
 
 用户 ID 可以通过打开用户的主页后查看地址栏的 `un` 字段来获取。
 
@@ -611,21 +652,21 @@ pageClass: routes
 
 ## 一亩三分地
 
-### 主题帖
+### 帖子
+
+<Route author="NavePnow DIYgod" example="/1point3acres/post/hot" path="/1point3acres/post/:category" :paramsDesc="['分类 category, 见下表']"/>
+
+| 热门帖子 | 最新帖子 |
+| -------- | -------- |
+| hot      | new      |
+
+### 用户主题帖
 
 <Route author="Maecenas" example="/1point3acres/user/1/threads" path="/1point3acres/user/:id/threads" :paramsDesc="['用户 id，可在 Instant 版网站的个人主页 URL 找到']"/>
 
-### 回帖
+### 用户回帖
 
 <Route author="Maecenas" example="/1point3acres/user/1/posts" path="/1point3acres/user/:id/posts" :paramsDesc="['用户 id，可在 Instant 版网站的个人主页 URL 找到']"/>
-
-### 帖子 (手机端的最热与最新 Tab)
-
-<Route author="NavePnow" example="/1point3acres/post/hot" path="/1point3acres/post/:category" :paramsDesc="['分类 category, 见下表']"/>
-
-| 最热帖子 | 最新帖子 |
-| -------- | -------- |
-| hot      | new      |
 
 ### 录取结果
 
