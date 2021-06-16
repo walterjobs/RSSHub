@@ -1,5 +1,10 @@
 {
     "version": 2,
+    "functions": {
+    "api/now.js": {
+      "maxDuration": 6
+    }
+  },
     "routes": [
         { "src": "/api/.*", "dest": "/api/now.js" },
         { "src": "/.*", "dest": "/api/now.js" }
